@@ -20,6 +20,7 @@ const getAllPosts = async (req, res) => {
     const { userId } = req.query;
     try {
         const posts = await PostModel.find(userId);
+        console.log(posts)
         res.send({ message: "All posts", posts });
     } catch (error) {
         res.status(500).send({ message: error.message, ...error });
